@@ -1,0 +1,84 @@
+14 October 2019, version 154
+- use Frenet-Serret equation to calculate normal vector
+  at predicted vertices
+
+08 October 2019, version 151
+- remove 'sorted' option from cgh parameters
+- implemented an algorithm for selection of phase boundary
+  start intersections that works with both continuous and
+  dis-continuous phase functions.
+
+06 October 2019, version 149
+- remove test scripts from the toolbox directory tree
+
+02 October 2019, version 146
+- remove the option to specify tile-specific algorithms because it
+  makes no sense.
+
+25 September 2019, version 136,137
+- changed the symmetric bracket search to an asymmetric
+  search that searches for isophase brackets only in one 
+  direction.
+- removed 'phase2ps' because it's not ready for publication
+- added 'polynomials' directory with functions for Zernike
+  and disk harmonic function models.
+
+22 September 2019, version 133
+- fixed serious bug in phase2cgh/pa/isophase_clip.m Now works when
+  the result of clipping is more than one polygon.
+
+20 September 2019, version 132
+- moved examples into own archive and prepare for testing
+
+15 September 2019, version 123
+- 'boundary_fill' extended to work with phase functions that
+   have a phase singularity (Hilbert phase term)
+
+12 September 2019, version 120
+- completed phase boundary filling algorithm that only relies
+  on edge intersections.
+
+11 September 2019, version 119
+- much improved 'hi' algorithm that does away with the concept
+  of 'inner boundaries'. Now a straight-forward extension of
+  the 'fi' algorithm - as it should be.
+
+04 September 2019, version 110
+- 'hi' algorithm for spiral zone plates with topological charge
+  (Hilbert phase term) are beginning to work. The algorithm is 
+  not really satisfying yet, though.
+
+15 Aug 2019, version 80
+- both pa and fi algorithms are finally working and seem robust.
+
+26 July 2019, version 60
+- completed the vectorized form of the isoline following algorithm.
+
+21 Jul 2019, version 51
+- rewrite from scratch the original implementation of the
+  pilot approximation idea by J. Soons.
+
+14 Oct 2018, version 40
+- combine all CGH functions in one place
+- subdirs for different algorithms
+- 'phase2cgh' parameter structure has new flag to select algorithm
+
+07 Oct 2018, version 39
+- increased the increment h vor calculation of derivatives to 1.5e-2. A
+  smaller value seems to result in rounding errors and numerical instability.
+- implemented heuristic for tiles containing critical points
+
+04 Oct 2018, version 37
+- basic hologram layout calculation is all working, but needs thorough testing.
+
+03 Oct 2018
+- got 'phase2cgh_tile' working.
+
+30 Sep 2018
+- reached the "proof of concept" milestone. The isophase following algorithm is
+  working, even though 'isophase_fill.m' is still buggy (boy was that true ... 09/2019).
+
+26 Sep 2018
+- finished coding all parts of 'phase2cgh_tile'.
+- completed debugging of 'isophase_edge_xing.m' and 'isophase_edges.m'
+  as well as a bevvy of auxiliary functions.

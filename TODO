@@ -1,0 +1,63 @@
+To Do List for CGH Toolbox
+--------------------------
+
+- improve and document zernike/private/sub2pos.m
+- improve edge intersection finding by calculating osculating circle - edge
+  intersections instead of segment - edge intersections
+- move common section of '*_vertex_init.m' functions into a separate function
+- 'openblas_threads' should be able to set the number of threads. What if
+  the octave installation does not use OpenBLAS ?
+- ensure that the 'hi' algorithm works with more than one singularity
+- update all Contents.m files
+- 'boundary_vertex_init' fails to find all curves that terminate on the
+  singularity. Is there a way to find all initial vertices at once ?
+- use intersection of a straight line with a circle to look up tile
+  edge intersections instead of a straight line (is no showstopper)
+- code to follow phase discontinuity (needed for 'wp')
+- code to find termination point of discontinuity at an edge (needed for 'wp')
+- algorithm for wrapped phase functions (multiplexed CGHs)
+- handle the case that the tangent vector at the start of an isophase
+  points exactly in the direction of the edge (may be OK already ?)
+- an implementation of Forbes-polynomials for phase function models
+- boundary_vertex_init: calculate phase intersections through small semi-circle
+  around singularity --> degeneracy of isophase curves at singularity is removed.
+- boundary_fill': remove degeneracy in singularity locations along the edge by
+  finding intersections of curves terminating at the singularity and a small
+  semi-circle around the singularity. Then call 'isophase_fill'.
+
+
+Done List
+---------
+
+- wrap the calls to phase2cgh_tile_* into try-catch blocks and print some
+  helpful information in case of a crash (DONE, 166)
+- 'orient_polygon' function to reduce code duplication (DONE)
+- remove recursive calls to '*_curves' because thy should no
+  longer be needed. (DONE)
+- remove the 'sorted' option and always sort edge intersections, because
+  sorted edge intersections are required for the filling algorithm to work (DONE)
+- find a way to pick start edge intersections such that there is no duplicate
+  tracing of boundary curves even when their phase is not constant (DONE)
+- include 'minterp2', which is needed for 'phase_map' (DONE)
+- what is a "sine-modulated toroidal lens" ? (DONE: phase function removed)
+- limit recursion depth (number of isoline segments) in 'isophase_fill'
+  Runaway recursion generally points to a problem with the isophase curves. (DONE)
+- improve 'hi' algorithm; eliminate concept of 'internal edges' (DONE)
+- calculate the normal vectors at predicted vertices and use
+  them for the bracketing directions. (DONE)
+- isophase filling algorithm that relies solely on edge topology (DONE)
+- 'hi' algorithm for phase functions with discontinuous Hilbert terms (DONE)
+- code to find termination point of isoline at a discontinuity (DONE)
+- more debugging is needed for 'pa' and 'fi' methods with layout that has
+  larger isoline curvatures (DONE)
+- properly vectorize the inner loop in /pa/isophase_refine.m (DONE)
+- prune unneeded polygon vertices in pa/isophase_refine.m (DONE sufficently well)
+- vectorize the isophase following algorithm (DONE; it's now faster
+  than the pilot approximation algorithm, down from one order of magnitude
+  slower for the non-vectorized implementation)
+- functions for derivatives, isoline curvature of discontinuous phase (DONE & tested)
+- figure out why 'vfmatch' crashes in 'isophase_edge_xing' (DONE)
+- rewrite J. Soon's code from scratch (DONE)
+- debug 'isophase_fill.m' (DONE)
+- correctly handle tiles without any edge intersections. Tiles without
+  intersections can be either opaque or clear (DONE).

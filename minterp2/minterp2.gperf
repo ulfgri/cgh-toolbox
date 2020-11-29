@@ -1,0 +1,24 @@
+%{
+/* hash table for option lookup
+ *
+ * process with:
+ *    gperf minterp2.gperf > minterp2.h
+ *
+ * NOTE: this software is in the Public Domain
+ * Ulf Griesmann, August 2013 
+ */
+%}
+%language=ANSI-C
+%struct-type
+
+struct keyword {
+   char *name;
+   double (*interp_func)(double*, double, double);
+};
+
+%%
+linear,    &interp_linear
+cubic,     &interp_cubic
+pchip,     &interp_pchip
+spline,    &interp_pchip
+lagrange,  &interp_lagrange

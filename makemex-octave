@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# shell script to make the .mex files of the 
+# CGH Toolbox for Octave on Linux/Unix
+# (allows for better control of optimization)
+
+export CFLAGS='-O2 -march=native -mtune=native -fomit-frame-pointer'
+
+cd ./phasefunc
+mkoctfile --mex -s fast_poly_eval.c
+
+cd ../minterp2
+mkoctfile --mex -s minterp2.c
+
+cd ..
+echo "Done."

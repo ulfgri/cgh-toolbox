@@ -1,0 +1,2 @@
+#!/bin/sh
+rm -f `find . -name \*.mex -or -name \*.o -or -name \*.mat -or -name \*.gds -or -name \*.png -or -name \*~`

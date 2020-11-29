@@ -1,0 +1,99 @@
+June 24, 2015; Ulf Griesmann
+- version 35
+- some code cleanup and scripts for easier building
+
+September 1, 2014; Ulf Griesmann
+- version 34
+- begin to make it 64-bit safe for MATLAB by using the 
+  new mwSize and mwIndex types. 
+
+August 23, 2014; Ulf Griesmann
+- version 33
+- fixed a couple of bugs in domain checks (J. Soons, NIST).
+- removed C++ style comments from minterp2.gperf because some
+  C compilers don't accept them.
+
+August 20, 2014; Ulf Griesmann
+- version 32
+- corrected an error in the help text in 'minterp2.m'.
+  The explanation of x and y was reversed. 
+
+May 1, 2014; Ulf Griesmann
+- version 31
+- try to avoid segmentation violations by accessing data
+  outside the interpolated matrix (interpolation too 
+  close to the data map edge).
+
+September 10, 2013; Ulf Griesmann
+- version 30
+- only small fixes here and there.
+- new interpolation option 'spline', which is a synonym
+  for 'pchip'. 
+
+September 9, 2013; Ulf Griesmann
+- version 29
+- minor cleanups; no significant improvements seem possible ...
+
+September 8, 2013; Ulf Griesmann
+- version 27,28
+- only re-calculate coefficients for bilinear and bicubic
+  interpolation when X0 or y0 change.
+- speed improvement in Lagrange interpolation.
+
+September 7, 2013; Ulf Griesmann
+- version 26
+- finally found the bug in cubic interpolation. 
+
+August 25, 2013; Ulf Griesmann
+- version 25
+- replaced most of the divisions in interp_lagrange with
+  multiplications. Much faster.
+
+August 24, 2013; Ulf Griesmann
+- version 23
+- added 3rd order Lagrange interpolation. Better than linear
+  interpolation, but derivatives are not continuous.
+- cubic interpolation still seems to have a bug ...
+
+August 12, 2013; Ulf Griesmann
+- version 22
+- 'snprintf' does not exist in Visual Studio; use 'sprintf' instead.
+- rename include file with hash function --> minterp2.h
+
+August 10, 2013; Ulf Griesmann
+- version 21
+- use hash function for the interpolation
+  function selection. Not really important but
+  more elegant.
+- small fixes.
+
+July 23, 2013; Ulf Griesmann
+- version 20
+- renamed minterp2mex.c --> minterp2.c and moved the argument
+  checking code into the mex function.
+- use __inline__ and __restrict compiler hints to get better code
+  from GCC on machines with AVX. 
+
+January 22, 2012; Ulf Griesmann
+- version 18
+- minor change in minterp2mex.c to improve
+  readability of code.
+
+January 21, 2012; Ulf Griesmann
+- version 17
+- interpolation functions return NaN instead of invalid
+  data when interpolation point is too close to the 'edge' 
+  of the matrix.
+  
+November 6, 2011; Ulf Griesmann
+- version 16
+- some reformatting to make code more readable. 
+
+November 5, 2011; Ulf Griesmann
+- version 15
+- made 'pchip' method a bit faster by saving a few multiplications.
+
+November 5, 2011; Ulf Griesmann
+- version 14
+- added piecewise Hermite spline interpolation. This is now the default
+  method.
